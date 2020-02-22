@@ -1,0 +1,62 @@
+{
+  "name": "houseKeeping",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "release": "react-native run-android --variant=release",
+    "build": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "new": "mkdir -p android/app/src/main/assets && rm -rf android/app/build && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean assembleRelease && cd ../",
+    "apk": "cd android && gradlew assembleDebug",
+    "cicd": "cd android && ./gradlew assembleRelease",
+    "cicddev": "cd android && ./gradlew assembleDebug",
+    "clean": "cd android && gradlew clean",
+    "unlink": "react-native unlink react-native-vector-icons",
+    "signed": "cd android && ./gradlew assembleRelease",
+    "signedAab": "cd android && gradlew bundleRelease",
+    "cleanCache": "react-native start --reset-cache"
+  },
+  "dependencies": {
+    "@react-native-community/async-storage": "^1.8.0",
+    "@react-native-community/masked-view": "^0.1.6",
+    "@react-navigation/native": "^5.0.6",
+    "@react-navigation/stack": "^5.0.6",
+    "axios": "^0.19.2",
+    "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-camera": "^3.18.0",
+    "react-native-device-info": "^5.5.3",
+    "react-native-flash-message": "^0.1.15",
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.0.0-beta.10",
+    "react-native-svg": "^11.0.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^0.0.7",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "16.9.0",
+    "redux-devtools": "^3.5.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
